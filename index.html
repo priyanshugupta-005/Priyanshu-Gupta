@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Priyanshu | B.Tech First Year Interactive 3D Portfolio</title>
+    <meta name="description" content="Personal Portfolio of Priyanshu - B.Tech First Year Student at JECRC University. Tech explorer, Java & Python enthusiast, Badminton and Chess player with animated 3D slides.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons for clean UI elements -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- 3D Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Ambient Glow Overlays -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="container nav-content">
+            <a href="#hero" class="logo" data-goto-slide="0">
+                <div class="logo-symbol">P</div>
+                <div class="logo-text">
+                    PRIYANSHU<span>.</span>
+                    <span class="logo-tag">B.Tech 1st Year</span>
+                </div>
+            </a>
+
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#hero" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About Me</a></li>
+                    <li><a href="#education" class="nav-link">Education</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#achievements" class="nav-link">Achievements</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <a href="#contact" class="nav-cta" data-goto-slide="5">
+                <i class="fa-solid fa-paper-plane"></i> Get In Touch
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Side Indicator Dots for Slides -->
+    <div class="slide-indicators">
+        <div class="indicator-dot active" title="01 Home">
+            <span class="indicator-tooltip">01 Home</span>
+        </div>
+        <div class="indicator-dot" title="02 About Me">
+            <span class="indicator-tooltip">02 About Me</span>
+        </div>
+        <div class="indicator-dot" title="03 Education">
+            <span class="indicator-tooltip">03 Education</span>
+        </div>
+        <div class="indicator-dot" title="04 Skills">
+            <span class="indicator-tooltip">04 Skills</span>
+        </div>
+        <div class="indicator-dot" title="05 Achievements">
+            <span class="indicator-tooltip">05 Achievements</span>
+        </div>
+        <div class="indicator-dot" title="06 Contact">
+            <span class="indicator-tooltip">06 Contact</span>
+        </div>
+    </div>
+
+    <!-- Floating Slide Controls (Next / Prev) -->
+    <div class="slide-controls">
+        <button class="slide-ctrl-btn" id="btn-prev-slide" aria-label="Previous Slide">
+            <i class="fa-solid fa-chevron-up"></i>
+        </button>
+        <button class="slide-ctrl-btn" id="btn-next-slide" aria-label="Next Slide">
+            <i class="fa-solid fa-chevron-down"></i>
+        </button>
+    </div>
+
+    <!-- Bottom Slide Counter & Animated Progress Bar -->
+    <div class="slide-counter-wrapper">
+        <span class="slide-counter-text" id="slide-counter-num">01 / 06</span>
+        <div class="slide-progress-track">
+            <div class="slide-progress-bar" id="slide-progress-fill"></div>
+        </div>
+        <span class="keyboard-hint">
+            <i class="fa-solid fa-keyboard"></i> Use ↑ / ↓ or Scroll
+        </span>
+    </div>
+
+    <!-- Animated Full-screen Slides Viewport -->
+    <main class="slides-viewport" id="slides-viewport">
+
+        <!-- =========================================================
+             SLIDE 0: Hero Section
+             ========================================================= -->
+        <section id="hero" class="slide active">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-intro">
+                        <div class="badge-status">
+                            <span class="status-dot"></span>
+                            B.Tech 1st Year Student • JECRC University
+                        </div>
+                        <h1 class="hero-title">
+                            Hi, I'm <span class="gradient-text">Priyanshu</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            An enthusiastic 18-year-old engineering undergraduate driven by a relentless curiosity for technology, software development, and exploring new horizons.
+                        </p>
+
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">18</span>
+                                <span class="stat-label">Years of Age</span>
+                            </div>
+                            <div class="stat-item" style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 1.5rem;">
+                                <span class="stat-number">JECRC</span>
+                                <span class="stat-label">University</span>
+                            </div>
+                            <div class="stat-item" style="border-left: 1px solid rgba(255,255,255,0.1); padding-left: 1.5rem;">
+                                <span class="stat-number">2+</span>
+                                <span class="stat-label">Languages</span>
+                            </div>
+                        </div>
+
+                        <div class="hero-actions">
+                            <button class="btn btn-primary" data-goto-slide="1">
+                                Explore My Story <i class="fa-solid fa-arrow-down"></i>
+                            </button>
+                            <button class="btn btn-outline" data-goto-slide="4">
+                                View Achievements <i class="fa-solid fa-trophy"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Hero Visual Card -->
+                    <div class="hero-card">
+                        <div class="card-header-mini">
+                            <span class="card-id-badge"><i class="fa-solid fa-id-card"></i> ACADEMIC PROFILE</span>
+                            <div class="uni-pill">
+                                <span class="uni-icon">🎓</span> JECRC University
+                            </div>
+                        </div>
+
+                        <div class="profile-summary-rows">
+                            <div class="summary-row">
+                                <span class="row-label"><i class="fa-regular fa-user"></i> Full Name</span>
+                                <span class="row-value">Priyanshu</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="row-label"><i class="fa-regular fa-calendar"></i> Date of Birth</span>
+                                <span class="row-value">05 / 12 / 2007 (Age 18)</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="row-label"><i class="fa-solid fa-graduation-cap"></i> Academic Level</span>
+                                <span class="row-value">B.Tech (1st Year)</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="row-label"><i class="fa-solid fa-code"></i> Core Languages</span>
+                                <span class="row-value">Java & Python</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="row-label"><i class="fa-solid fa-compass"></i> Passions</span>
+                                <span class="row-value">Travelling & Exploration</span>
+                            </div>
+                        </div>
+
+                        <div class="tags-mini">
+                            <span class="tag-mini"><i class="fa-brands fa-java"></i> Java</span>
+                            <span class="tag-mini"><i class="fa-brands fa-python"></i> Python</span>
+                            <span class="tag-mini">🏸 Badminton</span>
+                            <span class="tag-mini">♟️ Chess</span>
+                            <span class="tag-mini">✈️ Travelling</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             SLIDE 1: About Me
+             ========================================================= -->
+        <section id="about" class="slide">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Personal Identity</span>
+                    <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+                    <p class="section-desc">
+                        A closer look at my background, aspirations, and personal philosophy.
+                    </p>
+                </div>
+
+                <div class="about-grid">
+                    <!-- Bio Narrative -->
+                    <div class="glass-card about-bio-card">
+                        <div>
+                            <h3 style="font-size: 1.35rem; margin-bottom: 1rem; color: #fff;">
+                                Engineering Student & Lifelong Learner
+                            </h3>
+                            <p class="about-text">
+                                Hello! My name is <strong>Priyanshu</strong>. I am an 18-year-old engineering undergraduate currently pursuing my first year of <strong>B.Tech at JECRC University</strong>. I was born on <strong>5th December 2007</strong>, and have harbored a passion for understanding computational logic, systems, and creative technology.
+                            </p>
+                            <p class="about-text">
+                                Outside of academics, I believe learning happens everywhere. I am deeply passionate about <strong>travelling and exploring new things</strong>, experiencing varied cultures, and testing my mental acuity in strategic games like chess alongside energetic sports like badminton.
+                            </p>
+                        </div>
+
+                        <div class="about-highlights">
+                            <div class="highlight-box">
+                                <h4><i class="fa-solid fa-compass"></i> Curiosity Driven</h4>
+                                <p>Always eager to discover modern frameworks and experiment.</p>
+                            </div>
+                            <div class="highlight-box">
+                                <h4><i class="fa-solid fa-bolt"></i> Balanced Routine</h4>
+                                <p>Combining academic discipline with mind sports & physical fitness.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personal Details Matrix -->
+                    <div class="bio-data-grid">
+                        <div class="data-box">
+                            <div class="data-icon">👤</div>
+                            <div class="data-info">
+                                <span>Full Name</span>
+                                <h3>Priyanshu</h3>
+                            </div>
+                        </div>
+
+                        <div class="data-box">
+                            <div class="data-icon">🎂</div>
+                            <div class="data-info">
+                                <span>Age & DOB</span>
+                                <h3>18 Years (05/12/2007)</h3>
+                            </div>
+                        </div>
+
+                        <div class="data-box full-span">
+                            <div class="data-icon">🏛️</div>
+                            <div class="data-info">
+                                <span>Current University</span>
+                                <h3>JECRC University, Jaipur</h3>
+                            </div>
+                        </div>
+
+                        <div class="data-box">
+                            <div class="data-icon">🎓</div>
+                            <div class="data-info">
+                                <span>Program</span>
+                                <h3>B.Tech (1st Year)</h3>
+                            </div>
+                        </div>
+
+                        <div class="data-box">
+                            <div class="data-icon">🌏</div>
+                            <div class="data-info">
+                                <span>Interests</span>
+                                <h3>Travelling & Exploring</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             SLIDE 2: Education
+             ========================================================= -->
+        <section id="education" class="slide">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Academic Milestones</span>
+                    <h2 class="section-title">Education <span class="gradient-text">Journey</span></h2>
+                    <p class="section-desc">
+                        My formal schooling history and current university engineering education.
+                    </p>
+                </div>
+
+                <div class="education-timeline">
+                    <div class="timeline-line"></div>
+
+                    <!-- 1. B.Tech 1st Year -->
+                    <div class="timeline-item active">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card">
+                            <span class="timeline-badge badge-current">Current Academic Pursuit (2026)</span>
+                            <h3 class="edu-title">Bachelor of Technology (B.Tech) - 1st Year</h3>
+                            <div class="edu-institute">
+                                <i class="fa-solid fa-building-columns"></i> JECRC University
+                            </div>
+                            <p class="edu-desc">
+                                Currently pursuing foundational engineering studies. Developing core programming skills in Java and Python, studying computational problem solving, discrete math, and digital engineering principles.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 2. Class 12th -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card">
+                            <span class="timeline-badge badge-qualified">Successfully Qualified</span>
+                            <h3 class="edu-title">Senior Secondary Education (Class XII)</h3>
+                            <div class="edu-institute">
+                                <i class="fa-solid fa-school"></i> Higher Secondary School
+                            </div>
+                            <p class="edu-desc">
+                                Qualified Class 12th board exams with dedicated study in Science & Mathematics, establishing the mathematical thinking required for advanced engineering.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 3. Class 10th -->
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="glass-card">
+                            <span class="timeline-badge badge-qualified">Successfully Qualified</span>
+                            <h3 class="edu-title">Secondary School Examination (Class X)</h3>
+                            <div class="edu-institute">
+                                <i class="fa-solid fa-graduation-cap"></i> Secondary School Education
+                            </div>
+                            <p class="edu-desc">
+                                Qualified Class 10th with high academic marks while actively playing in school-level badminton and chess competitions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             SLIDE 3: Skills
+             ========================================================= -->
+        <section id="skills" class="slide">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Abilities & Interests</span>
+                    <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
+                    <p class="section-desc">
+                        A blend of core software programming, adventurous explorer mindset, and adaptability.
+                    </p>
+                </div>
+
+                <div class="skills-grid">
+                    <!-- Technical & Programming Skills -->
+                    <div class="glass-card">
+                        <h3 class="skill-category-title">
+                            <i class="fa-solid fa-laptop-code" style="color: var(--accent-cyan);"></i> Technical & Programming
+                        </h3>
+
+                        <div class="skill-list">
+                            <!-- Java -->
+                            <div class="skill-item">
+                                <div class="skill-top">
+                                    <div class="skill-info">
+                                        <div class="skill-icon"><i class="fa-brands fa-java"></i></div>
+                                        <div>
+                                            <div class="skill-name">Java Programming</div>
+                                            <span class="skill-badge">Core Foundations & OOP</span>
+                                        </div>
+                                    </div>
+                                    <span style="font-weight: 700; color: var(--accent-cyan); font-size: 0.9rem;">Learned</span>
+                                </div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill" style="width: 80%;"></div>
+                                </div>
+                                <p class="skill-desc-text">
+                                    Object-Oriented Programming (OOP) concepts, classes, inheritance, encapsulation, methods, and algorithmic logic structure.
+                                </p>
+                            </div>
+
+                            <!-- Python -->
+                            <div class="skill-item">
+                                <div class="skill-top">
+                                    <div class="skill-info">
+                                        <div class="skill-icon py"><i class="fa-brands fa-python"></i></div>
+                                        <div>
+                                            <div class="skill-name">Python</div>
+                                            <span class="skill-badge">Scripting & Logic Building</span>
+                                        </div>
+                                    </div>
+                                    <span style="font-weight: 700; color: #818cf8; font-size: 0.9rem;">Learned</span>
+                                </div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill" style="width: 85%; background: linear-gradient(135deg, #6366f1, #a855f7);"></div>
+                                </div>
+                                <p class="skill-desc-text">
+                                    Practical command over Python syntax, data types, lists, dictionaries, conditionals, loops, and modular scripts.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Passions & Explorer Skills -->
+                    <div class="glass-card">
+                        <h3 class="skill-category-title">
+                            <i class="fa-solid fa-compass" style="color: var(--accent-amber);"></i> Passions & Life Skills
+                        </h3>
+
+                        <div class="skill-list">
+                            <!-- Travelling -->
+                            <div class="skill-item">
+                                <div class="skill-top">
+                                    <div class="skill-info">
+                                        <div class="skill-icon travel"><i class="fa-solid fa-plane-departure"></i></div>
+                                        <div>
+                                            <div class="skill-name">Travelling</div>
+                                            <span class="skill-badge">Cultural Exposure & Adaptability</span>
+                                        </div>
+                                    </div>
+                                    <span style="font-weight: 700; color: #fbbf24; font-size: 0.9rem;">Active Passion</span>
+                                </div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill" style="width: 90%; background: linear-gradient(135deg, #f59e0b, #ef4444);"></div>
+                                </div>
+                                <p class="skill-desc-text">
+                                    Exploring new regions and meeting new people builds high environmental adaptability, self-reliance, and expansive thinking.
+                                </p>
+                            </div>
+
+                            <!-- Exploring New Things -->
+                            <div class="skill-item">
+                                <div class="skill-top">
+                                    <div class="skill-info">
+                                        <div class="skill-icon explore"><i class="fa-solid fa-lightbulb"></i></div>
+                                        <div>
+                                            <div class="skill-name">Exploring New Things</div>
+                                            <span class="skill-badge">Curiosity & Fast Adoption</span>
+                                        </div>
+                                    </div>
+                                    <span style="font-weight: 700; color: #c084fc; font-size: 0.9rem;">Constant Drive</span>
+                                </div>
+                                <div class="progress-bar-bg">
+                                    <div class="progress-bar-fill" style="width: 92%; background: linear-gradient(135deg, #a855f7, #38bdf8);"></div>
+                                </div>
+                                <p class="skill-desc-text">
+                                    An active eagerness to test emerging tools, read new documentation, learn fresh paradigms, and embrace challenge.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             SLIDE 4: Achievements
+             ========================================================= -->
+        <section id="achievements" class="slide">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Proven Milestones</span>
+                    <h2 class="section-title">Key <span class="gradient-text">Achievements</span></h2>
+                    <p class="section-desc">
+                        Honors, technical milestones, and sports competitions achieved through hard work and discipline.
+                    </p>
+                </div>
+
+                <div class="achievements-grid">
+                    <!-- Achievement 1: Programming -->
+                    <div class="glass-card achievement-card">
+                        <div>
+                            <div class="achievement-icon-wrapper icon-code">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <h3 class="achievement-title">Learned Java & Python</h3>
+                            <p class="achievement-details">
+                                Mastered essential programming foundations in both Java and Python in the 1st year of engineering, creating structured console applications and developing strong problem-solving habits.
+                            </p>
+                        </div>
+                        <div class="achievement-meta">
+                            <span>Category: Tech & Coding</span>
+                            <span class="achievement-level">1st Year Milestone</span>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 2: Badminton -->
+                    <div class="glass-card achievement-card">
+                        <div>
+                            <div class="achievement-icon-wrapper icon-sports">
+                                <i class="fa-solid fa-volleyball"></i>
+                            </div>
+                            <h3 class="achievement-title">School-Level Badminton Player</h3>
+                            <p class="achievement-details">
+                                Played badminton in inter-school tournaments. Built quick physical reflexes, sharp hand-eye coordination, stamina, and steadfast composure under match pressure.
+                            </p>
+                        </div>
+                        <div class="achievement-meta">
+                            <span>Category: Athletics</span>
+                            <span class="achievement-level" style="color: #34d399;">School Level</span>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 3: Chess -->
+                    <div class="glass-card achievement-card">
+                        <div>
+                            <div class="achievement-icon-wrapper icon-chess">
+                                <i class="fa-solid fa-chess-knight"></i>
+                            </div>
+                            <h3 class="achievement-title">School-Level Chess Player</h3>
+                            <p class="achievement-details">
+                                Competed in school chess competitions, developing strategic foresight, tactical calculation, pattern recognition, and methodical decision-making.
+                            </p>
+                        </div>
+                        <div class="achievement-meta">
+                            <span>Category: Mind Sports</span>
+                            <span class="achievement-level" style="color: #fbbf24;">School Level</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================================
+             SLIDE 5: Contact & Academic Evaluation
+             ========================================================= -->
+        <section id="contact" class="slide">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-badge">Let's Connect</span>
+                    <h2 class="section-title">Contact & <span class="gradient-text">Review</span></h2>
+                    <p class="section-desc">
+                        Reach out for feedback, professor evaluation, or collaboration inquiries.
+                    </p>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Contact Details -->
+                    <div class="glass-card contact-info-card">
+                        <div>
+                            <h3 style="font-size: 1.35rem; margin-bottom: 0.75rem;">Get in Touch</h3>
+                            <p style="color: var(--text-muted); font-size: 0.95rem;">
+                                Always open to receiving valuable guidance from professors, discussing academic projects, and connecting with peers.
+                            </p>
+
+                            <div class="contact-channels">
+                                <a href="mailto:priyanshu@jecrc.ac.in" class="contact-item" onclick="copyEmail(); return false;">
+                                    <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                                    <div class="contact-details">
+                                        <span>Institutional Email</span>
+                                        <strong>priyanshu@jecrc.ac.in (Click to copy)</strong>
+                                    </div>
+                                </a>
+
+                                <div class="contact-item">
+                                    <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+                                    <div class="contact-details">
+                                        <span>Campus Location</span>
+                                        <strong>JECRC University, Jaipur, Rajasthan</strong>
+                                    </div>
+                                </div>
+
+                                <div class="contact-item">
+                                    <div class="contact-icon"><i class="fa-solid fa-user-graduate"></i></div>
+                                    <div class="contact-details">
+                                        <span>Academic Standing</span>
+                                        <strong>B.Tech First Year (Class of 2026)</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="academic-note">
+                            <i class="fa-solid fa-circle-info"></i> <strong>Note for Professor:</strong> This portfolio presentation is prepared for B.Tech First Year review, showcasing web development, animated slide transitions, and Three.js 3D graphics.
+                        </div>
+                    </div>
+
+                    <!-- Contact / Feedback Form -->
+                    <div class="glass-card">
+                        <h3 style="font-size: 1.25rem; margin-bottom: 1.25rem;">Send a Review or Message</h3>
+                        <form id="portfolio-contact-form" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" class="form-input" placeholder="e.g. Prof. Sharma" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Your Email Address</label>
+                                <input type="email" id="email" class="form-input" placeholder="name@domain.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" class="form-input" placeholder="Portfolio Evaluation / Feedback" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" class="form-textarea" placeholder="Write comments or marks evaluation here..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="justify-content: center;">
+                                <i class="fa-solid fa-paper-plane"></i> Submit Feedback
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Toast Notification Element -->
+    <div id="toast" class="toast-msg"></div>
+
+    <!-- Three.js Library via Cloudflare CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- 3D Background Script with Slide Choreography -->
+    <script src="js/bg3d.js"></script>
+    
+    <!-- Animated Slide Controller & UI Script -->
+    <script src="js/main.js"></script>
+</body>
+</html>
